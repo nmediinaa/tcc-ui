@@ -1,0 +1,77 @@
+.steps-grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 0;
+}
+
+.div-step-algorithm {
+  background: #ffffff;
+  border: 1px solid #eceef7;
+  border-radius: 16px;
+  padding: 1.75rem;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(20, 20, 50, 0.04);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-step-algorithm:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(108, 92, 231, 0.18);
+  border-color: #e0e2fa;
+}
+
+.step-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(61,139,253,0.1));
+  color: #5e5df0;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  width: max-content;
+}
+
+.div-step-algorithm h3 {
+  font-size: 1.1rem;
+  color: #16162b;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.div-step-algorithm p {
+  color: #656a8c;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem 0;
+  padding: 0;
+  flex: 1;
+}
+
+.step-algorithm-btn {
+  align-self: center;
+  margin: 0;
+  background: transparent;
+  color: #5e5df0;
+  border: 1px solid #d9d9fb;
+  border-radius: 999px;
+  box-shadow: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.step-algorithm-btn:hover {
+  background: #5e5df0;
+  color: #fff;
+}

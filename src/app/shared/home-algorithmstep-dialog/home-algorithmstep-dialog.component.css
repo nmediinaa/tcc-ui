@@ -1,0 +1,44 @@
+.dialog-card {
+  background-color: #ffffff;
+  border: 1px solid #eceef7;
+  border-radius: 18px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 60px -12px rgba(20, 20, 60, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f4f4fa;
+  color: #656a8c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+  background: linear-gradient(135deg, #6c5ce7, #3d8bfd);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.close-btn:active {
+  transform: rotate(90deg) scale(0.92);
+}
+
+.dialog-badge {
+  margin-top: 8px;
+  margin-right: 40px;
+}

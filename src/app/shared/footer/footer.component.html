@@ -1,0 +1,38 @@
+<footer class="footer">
+  <div class="footer-content">
+    <div class="div-footer-uscs">
+      <img src="/images/Logo_uscs.png" alt="Logo USCS" />
+    </div>
+
+    <div class="footer-links-wrapper">
+      <div class="div-footer-grupo">
+        <h3>Grupo</h3>
+        <ul>
+          <li *ngFor="let nome of integrantes">
+            {{ nome }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-footer-orientador">
+        <h3>Orientador</h3>
+        <ul>
+          <li>Prof. Raphael Lopes</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Links</h3>
+        <ul>
+          <li>
+            <a href="">Repositório</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <hr class="footer-divider" />
+    <p>© 2026 Orientatech.ai — Trabalho de Conclusão de Curso (TCC) • USCS</p>
+  </div>
+</footer>
