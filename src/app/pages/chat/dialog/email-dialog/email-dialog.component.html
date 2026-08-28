@@ -1,0 +1,26 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Fechar" (click)="onClose()">&times;</button>
+
+    <h2 class="modal-title">Receba seu resultado</h2>
+
+    <p class="modal-description">
+      As respostas obtidas na sua interação serão processadas pela nossa inteligência. Insira o seu
+      e-mail abaixo para enviarmos o seu resultado detalhado e recomendações ao final do processo.
+    </p>
+
+    <form class="modal-form" (ngSubmit)="sendEmail()">
+  <input
+    type="email"
+    class="modal-input"
+    name="email"
+    placeholder="seu.melhor@email.com"
+    required
+    [(ngModel)]="userEmail"
+  />
+  <button type="submit" class="modal-submit">
+    Enviar para meu e-mail
+  </button>
+</form>
+  </div>
+</div>

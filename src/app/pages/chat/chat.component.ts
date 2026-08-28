@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IMessage } from '../../interfaces/menssage.interface';
 import { IChatMessage } from '../../interfaces/chat-messages.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { EmailDialogComponent } from './dialog/email-dialog/email-dialog.component';
 
 
 @Component({
@@ -17,6 +19,7 @@ import { IChatMessage } from '../../interfaces/chat-messages.interface';
 export class ChatComponent implements OnInit {
 
   private chatService = inject(ChatService)
+  private ref = inject(MatDialog)
 
   showDiv = signal(false)
   messages: IChatMessage[] = []
@@ -25,6 +28,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.sessionId = 'sessao-' + Math.random().toString(36).substring(2, 9);
+    this.loadEmailDialog();
   }
 
 
@@ -58,5 +62,12 @@ export class ChatComponent implements OnInit {
 
     this.userMsg = ''
 
+  }
+
+  private loadEmailDialog(): void {
+    this.ref.open(EmailDialogComponent, {
+      width: '400px',
+      disableClose: true,
+    })
   }
 }

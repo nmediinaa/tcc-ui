@@ -1,0 +1,112 @@
+body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: #f3f4f6; /* Cor de fundo genérica */
+    }
+
+    /* Overlay escuro do Modal */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(31, 41, 55, 0.4); /* Fundo semi-transparente similar à imagem */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    /* Container principal do Dialog */
+    .modal-content {
+        background-color: #ffffff;
+        border-radius: 20px; /* Bordas bem arredondadas como na imagem */
+        padding: 40px;
+        width: 90%;
+        max-width: 480px;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Botão de Fechar (X) */
+    .modal-close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background-color: #eef2ff; /* Fundo azul claro */
+        color: #4f46e5; /* Ícone azul escuro */
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.2s;
+    }
+
+    .modal-close:hover {
+        background-color: #e0e7ff;
+    }
+
+    /* Título */
+    .modal-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #111827;
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    /* Texto de descrição */
+    .modal-description {
+        font-size: 15px;
+        color: #374151;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    /* Formulário */
+    .modal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* Input de E-mail */
+    .modal-input {
+        padding: 14px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 15px;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    .modal-input:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    /* Botão de Envio (Inspirado no botão "Iniciar" da imagem) */
+    .modal-submit {
+        background-color: #4a549a; /* Cor roxa/azul escuro do topo da imagem */
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-family: inherit;
+    }
+
+    .modal-submit:hover {
+        background-color: #3b437a;
+    }
