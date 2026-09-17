@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { ChatService } from '../../services/chat.services';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +7,8 @@ import { IMessage } from '../../interfaces/menssage.interface';
 import { IChatMessage } from '../../interfaces/chat-messages.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EmailDialogComponent } from './dialog/email-dialog/email-dialog.component';
+import { HttpErrorResponse } from '@angular/common/http';
+import { retryWhen, throwError } from 'rxjs';
 
 
 @Component({
@@ -18,21 +20,23 @@ import { EmailDialogComponent } from './dialog/email-dialog/email-dialog.compone
 })
 export class ChatComponent implements OnInit {
 
+  @ViewChild('chatInput') chatInput!: ElementRef;
   private chatService = inject(ChatService)
-  private ref = inject(MatDialog)
 
   showDiv = signal(false)
   messages: IChatMessage[] = []
   sessionId: string = ''
   userMsg = ''
+  isButtonEnable = signal(true)
 
   ngOnInit(): void {
     this.sessionId = 'sessao-' + Math.random().toString(36).substring(2, 9);
-    this.loadEmailDialog();
   }
 
 
   sendMessage() {
+
+    this.isButtonEnable.set(false)
 
     const msg: IMessage = {
       sessionId: this.sessionId,
@@ -46,7 +50,8 @@ export class ChatComponent implements OnInit {
 
     this.showDiv.set(true)
 
-    this.chatService.sendMessage(msg).subscribe({
+    this.chatService.sendMessage(msg)
+    .subscribe({
       next: (x) => {
         this.showDiv.set(false)
 
@@ -54,20 +59,20 @@ export class ChatComponent implements OnInit {
           role: 'ai',
           text: x.output
         })
+
+        this.isButtonEnable.set(true)
+        setTimeout(() => {
+      this.chatInput.nativeElement.focus();
+    });
       },
-      error: (error) => {
-        alert("Too many requested to the model, please wait until reset")
+      error: (error: HttpErrorResponse) => {
+        if(error.status === 502){
+          console.error('Bad Gateway: ',error.message)
+        }
       }
     })
 
     this.userMsg = ''
 
-  }
-
-  private loadEmailDialog(): void {
-    this.ref.open(EmailDialogComponent, {
-      width: '400px',
-      disableClose: true,
-    })
   }
 }
