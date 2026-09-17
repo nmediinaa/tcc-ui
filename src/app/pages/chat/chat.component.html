@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <!-- Indicador de "digitando..." — controle a exibição via *ngIf no TS -->
+      
       <div class="msg-row ai typing-row" *ngIf="showDiv()">
         <div class="avatar ai-avatar">IA</div>
         <div class="typing-bubble"><span></span><span></span><span></span></div>
@@ -52,16 +52,19 @@
     </div>
   </div>
 
-  <!-- INPUT -->
+  
   <div class="chat-input-bar">
     <div class="chat-input-inner">
       <input
+        #chatInput
         type="text"
         class="chat-input"
         placeholder="Digite sua resposta..."
         [(ngModel)]="userMsg"
+        (keyup.enter)="sendMessage()"
+        [disabled]="!isButtonEnable()"
       />
-      <button class="send-btn" aria-label="Enviar mensagem" (click)="sendMessage()">
+      <button class="send-btn" aria-label="Enviar mensagem" (click)="sendMessage()" [disabled]="!isButtonEnable()">
         <svg
           width="18"
           height="18"
