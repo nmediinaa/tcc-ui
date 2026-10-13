@@ -14,7 +14,7 @@ export class FooterComponent {
     'Higor Pereira Rocha',
     'Julio Cesar Viana Silva',
     'Mateo Fabian Fujimori Rodriguez',
-    'Matheus Paiva Firmino',
+    'Matheus Paiva Fermino',
     'Nicolas Costa Medina'
   ]
 }

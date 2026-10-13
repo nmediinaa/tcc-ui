@@ -11,7 +11,4 @@ import { ButtonModule } from 'primeng/button';
 })
 export class HeaderComponent {
 
-  redirectToTest(){
-    alert('Calma pae! Ainda nn ta pronto!')
-  }
 }
